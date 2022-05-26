@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\M S I\\source\\repos\\Back-End Pronia\\Back-End Pronia\\Back-End Pronia.csproj": {}
+    "C:\\Users\\M S I\\Desktop\\Back-End Pronia\\Back-End Pronia\\Back-End Pronia.csproj": {}
   },
   "projects": {
-    "C:\\Users\\M S I\\source\\repos\\Back-End Pronia\\Back-End Pronia\\Back-End Pronia.csproj": {
+    "C:\\Users\\M S I\\Desktop\\Back-End Pronia\\Back-End Pronia\\Back-End Pronia.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\M S I\\source\\repos\\Back-End Pronia\\Back-End Pronia\\Back-End Pronia.csproj",
+        "projectUniqueName": "C:\\Users\\M S I\\Desktop\\Back-End Pronia\\Back-End Pronia\\Back-End Pronia.csproj",
         "projectName": "Back-End Pronia",
-        "projectPath": "C:\\Users\\M S I\\source\\repos\\Back-End Pronia\\Back-End Pronia\\Back-End Pronia.csproj",
+        "projectPath": "C:\\Users\\M S I\\Desktop\\Back-End Pronia\\Back-End Pronia\\Back-End Pronia.csproj",
         "packagesPath": "C:\\Users\\M S I\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\M S I\\source\\repos\\Back-End Pronia\\Back-End Pronia\\obj\\",
+        "outputPath": "C:\\Users\\M S I\\Desktop\\Back-End Pronia\\Back-End Pronia\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\M S I\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -53,6 +53,10 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[3.1.25, )"
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[3.1.5, )"
             }
           },
           "imports": [

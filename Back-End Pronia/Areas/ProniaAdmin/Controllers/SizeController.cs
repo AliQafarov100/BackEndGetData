@@ -42,17 +42,58 @@ namespace Back_End_Pronia.Areas.ProniaAdmin.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        public IActionResult Detail(int id)
+
+        public async Task<IActionResult> Detail(int id)
         {
-            return Json(id);
+            Size size = await _context.Sizes.FirstOrDefaultAsync(x => x.Id == id);
+            if (size == null) return NotFound();
+            return View(size);
         }
-        public IActionResult Edit(int id)
+        public async Task<IActionResult> Edit(int id)
         {
-            return Json(id);
+            Size size = await _context.Sizes.FirstOrDefaultAsync(x => x.Id == id);
+            if (size == null) return View();
+            return View(size);
         }
-        public IActionResult Delete(int id)
+
+        [HttpPost]
+        [AutoValidateAntiforgeryToken]
+        public async Task<IActionResult> Edit(int id,Size size)
         {
-            return Json(id);
+            Size existedSize = await _context.Sizes.FirstOrDefaultAsync(x => x.Id == id);
+            if (existedSize == null) return NotFound();
+            if (id != size.Id) 
+            {
+                return BadRequest();
+            }
+            existedSize.Name = size.Name;
+
+            await _context.SaveChangesAsync();
+
+            return RedirectToAction(nameof(Index));
+        }
+        public async Task<IActionResult> Delete(int id)
+        {
+            Size size = await _context.Sizes.FirstOrDefaultAsync(x => x.Id == id);
+            if (size == null) return NotFound();
+            return View(size);
+        }
+
+        [HttpPost]
+        [AutoValidateAntiforgeryToken]
+        [ActionName("Delete")]
+         
+        public async Task<IActionResult> DeleteSize(int id)
+        {
+            Size size = await _context.Sizes.FirstOrDefaultAsync(x => x.Id == id);
+
+            if (size == null) return NotFound();
+
+            _context.Sizes.Remove(size);
+
+            await _context.SaveChangesAsync();
+
+            return View(size);
         }
     }
 }

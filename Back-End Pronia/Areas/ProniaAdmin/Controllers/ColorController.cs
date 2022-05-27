@@ -27,19 +27,71 @@ namespace Back_End_Pronia.Areas.ProniaAdmin.Controllers
 
         public IActionResult Create()
         {
-            return Json("Create");
+            return View();
         }
-        public IActionResult Detail(int id)
+
+        [HttpPost]
+
+        public async Task<IActionResult> Create(Color color)
         {
-            return Json(id);
+            
+            if (!ModelState.IsValid) return NotFound();
+            await _context.AddAsync(color);
+            await _context.SaveChangesAsync();
+
+            return RedirectToAction(nameof(Index));
         }
-        public IActionResult Edit(int id)
+        public async Task<IActionResult> Detail(int id)
         {
-            return Json(id);
+            Color color = await _context.Colors.FirstOrDefaultAsync(x => x.Id == id);
+            if (color == null) return NotFound();
+            return View(color);
         }
-        public IActionResult Delete(int id)
+        public async Task<IActionResult> Edit(int id)
         {
-            return Json(id);
+            Color color = await _context.Colors.FirstOrDefaultAsync(x => x.Id == id);
+            if (color == null) return NotFound();
+            return View(color);
+        }
+
+        [HttpPost]
+        [AutoValidateAntiforgeryToken]
+
+        public async Task<IActionResult> Edit(int id,Color color)
+        {
+            Color exitedColor = await _context.Colors.FirstOrDefaultAsync(x => x.Id == id);
+            if (exitedColor == null) return NotFound();
+            if (id != color.Id) return BadRequest();
+
+            exitedColor.Name = color.Name;
+
+            await _context.SaveChangesAsync();
+
+            return View();
+        }
+        public async Task<IActionResult> Delete(int id)
+        {
+            Color color = await _context.Colors.FirstOrDefaultAsync(x => x.Id == id);
+            if (color == null) return NotFound();
+
+            return View(color);
+        }
+
+        [HttpPost]
+        [AutoValidateAntiforgeryToken]
+        [ActionName("Delete")]
+
+        public async Task<IActionResult> DeleteColor(int id)
+        {
+            Color color = await _context.Colors.FirstOrDefaultAsync(x => x.Id == id);
+            if (color == null) return NotFound();
+
+            _context.Colors.Remove(color);
+
+            await _context.SaveChangesAsync();
+
+            return View(color);
+
         }
     }
 }

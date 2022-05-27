@@ -7,6 +7,7 @@ using Back_End_Pronia.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
+
 namespace Back_End_Pronia.Areas.ProniaAdmin.Controllers
 {
     [Area("ProniaAdmin")]
@@ -23,21 +24,71 @@ namespace Back_End_Pronia.Areas.ProniaAdmin.Controllers
             List<Category> categories = await _context.Categories.ToListAsync();
             return View(categories);
         }
+
         public IActionResult Create()
         {
-            return Json("Create");
+            return View();
         }
-        public IActionResult Detail(int id)
+
+        [HttpPost]
+        public async Task<IActionResult> Create(Category category)
         {
-            return Json(id);
+            if (!ModelState.IsValid) return View();
+            await _context.Categories.AddAsync(category);
+            await _context.SaveChangesAsync();
+
+            return RedirectToAction(nameof(Index));
         }
-        public IActionResult Edit(int id)
+
+        public async Task<IActionResult> Detail(int id)
         {
-            return Json(id);
+            Category category = await _context.Categories.FirstOrDefaultAsync(x => x.Id == id);
+            if (category == null) return NotFound();
+
+            return View(category);
         }
-        public IActionResult Delete(int id)
+        public async Task<IActionResult> EditAsync(int id)
         {
-            return Json(id);
+            Category category = await _context.Categories.FirstOrDefaultAsync(x => x.Id == id);
+            if (category == null) return NotFound();
+            return View();
+        }
+
+        [HttpPost]
+        [AutoValidateAntiforgeryToken]
+
+        public async Task<IActionResult> Edit(int id,Category category)
+        {
+            Category existedCategory = await _context.Categories.FirstOrDefaultAsync(x => x.Id == id);
+            if (category == null) return NotFound();
+            if (category.Id != id) return BadRequest();
+
+            existedCategory.Name = category.Name;
+            await _context.SaveChangesAsync();
+
+            return RedirectToAction(nameof(Index));
+        }
+        public async Task<IActionResult> Delete(int id)
+        {
+            Category category = await _context.Categories.FirstOrDefaultAsync(x => x.Id == id);
+            if (category == null) return NotFound();
+            return View(category);
+        }
+
+        [HttpPost]
+        [AutoValidateAntiforgeryToken]
+        [ActionName("Delete")]
+
+        public async Task<IActionResult> DeleteCategory(int id)
+        {
+            Category category = await _context.Categories.FirstOrDefaultAsync(x => x.Id == id);
+            if (category == null) return NotFound();
+
+            _context.Categories.Remove(category);
+
+           await _context.SaveChangesAsync();
+
+            return View(category);
         }
     }
 }

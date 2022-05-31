@@ -246,6 +246,6 @@ C:\Users\M S I\Desktop\Back-End Pronia\Back-End Pronia\obj\Debug\netcoreapp3.1\R
 C:\Users\M S I\Desktop\Back-End Pronia\Back-End Pronia\obj\Debug\netcoreapp3.1\Razor\Areas\ProniaAdmin\Views\Plant\Index.cshtml.g.cs
 C:\Users\M S I\Desktop\Back-End Pronia\Back-End Pronia\obj\Debug\netcoreapp3.1\Razor\Areas\ProniaAdmin\Views\Plant\Create.cshtml.g.cs
 C:\Users\M S I\Desktop\Back-End Pronia\Back-End Pronia\obj\Debug\netcoreapp3.1\Razor\Areas\ProniaAdmin\Views\Plant\Edit.cshtml.g.cs
-C:\Users\M S I\Desktop\Back-End Pronia\Back-End Pronia\obj\Debug\netcoreapp3.1\Back-End Pronia.csproj.AssemblyReference.cache
 C:\Users\M S I\Desktop\Back-End Pronia\Back-End Pronia\obj\Debug\netcoreapp3.1\Razor\Areas\ProniaAdmin\Views\Plant\Delete.cshtml.g.cs
 C:\Users\M S I\Desktop\Back-End Pronia\Back-End Pronia\obj\Debug\netcoreapp3.1\Razor\Areas\ProniaAdmin\Views\Plant\Detail.cshtml.g.cs
+C:\Users\M S I\Desktop\Back-End Pronia\Back-End Pronia\obj\Debug\netcoreapp3.1\Back-End Pronia.csproj.AssemblyReference.cache

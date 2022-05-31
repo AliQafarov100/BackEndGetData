@@ -9,5 +9,6 @@ namespace Back_End_Pronia.Models
     {
         public int Id { get; set; }
         public string Name { get; set; }
+        public List<PlantCategory> PlantCategories { get; set; }
     }
 }

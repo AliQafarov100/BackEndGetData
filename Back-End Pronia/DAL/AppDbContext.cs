@@ -21,5 +21,6 @@ namespace Back_End_Pronia.DAL
         public DbSet<PlantImage> PlantImages { get; set; }
         public DbSet<Size> Sizes { get; set; }
         public DbSet<Category> Categories { get; set; }
+        public DbSet<PlantCategory> PlantCategories { get; set; }
     }
 }

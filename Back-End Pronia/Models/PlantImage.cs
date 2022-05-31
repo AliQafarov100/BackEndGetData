@@ -12,5 +12,10 @@ namespace Back_End_Pronia.Models
         public bool? IsMain { get; set; }
         public int? PlantId { get; set; }
         public Plant Plant { get; set; }
+
+        internal Task<string> PathFiles()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

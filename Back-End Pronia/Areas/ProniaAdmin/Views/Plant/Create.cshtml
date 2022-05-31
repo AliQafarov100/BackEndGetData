@@ -43,6 +43,11 @@
         <span class="text-danger" asp-validation-for="SizeId"></span>
     </div>
     <div>
+        <label class="mb-3">Plant Categories:</label><br />
+        <select class="form-control" asp-for="CategoryIds" asp-items="@(new SelectList(ViewBag.Categories,"Id","Name"))"></select>
+        <span class="text-danger" asp-validation-for="CategoryIds"></span>
+    </div>
+    <div>
         <label class="mb-3">Plant image:</label><br />
         <input asp-for="IsMain" class="form-control" accept="image/*" /><br />
         <span class="text-danger" asp-validation-for="IsMain"></span>

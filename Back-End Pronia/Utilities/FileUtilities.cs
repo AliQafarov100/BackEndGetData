@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Http;
 
 namespace Back_End_Pronia.Utilities
 {
-    public static class Utilities
+    public static class FileUtilities
     {
         public static async Task<string> PathFiles(this IFormFile file,string root,string folder)
         {
@@ -20,6 +20,16 @@ namespace Back_End_Pronia.Utilities
                 await file.CopyToAsync(stream);
             }
             return fileName;
+        }
+
+        public static void FileDelete(string root,string path,string fileName)
+        {
+            string fullPath = Path.Combine(root,path,fileName);
+            if (File.Exists(fullPath))
+            {
+                File.Delete(fullPath);
+            }
+
         }
     }
 }

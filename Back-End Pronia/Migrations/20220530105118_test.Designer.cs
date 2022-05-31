@@ -4,14 +4,16 @@ using Back_End_Pronia.DAL;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Back_End_Pronia.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220530105118_test")]
+    partial class test
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -143,28 +145,6 @@ namespace Back_End_Pronia.Migrations
                     b.ToTable("Plants");
                 });
 
-            modelBuilder.Entity("Back_End_Pronia.Models.PlantCategory", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("CategoryId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("PlantId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("CategoryId");
-
-                    b.HasIndex("PlantId");
-
-                    b.ToTable("PlantCategories");
-                });
-
             modelBuilder.Entity("Back_End_Pronia.Models.PlantImage", b =>
                 {
                     b.Property<int>("Id")
@@ -245,21 +225,6 @@ namespace Back_End_Pronia.Migrations
                     b.HasOne("Back_End_Pronia.Models.Size", "size")
                         .WithMany("Plants")
                         .HasForeignKey("SizeId");
-                });
-
-            modelBuilder.Entity("Back_End_Pronia.Models.PlantCategory", b =>
-                {
-                    b.HasOne("Back_End_Pronia.Models.Category", "Category")
-                        .WithMany("PlantCategories")
-                        .HasForeignKey("CategoryId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Back_End_Pronia.Models.Plant", "Plant")
-                        .WithMany("PlantCategories")
-                        .HasForeignKey("PlantId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
                 });
 
             modelBuilder.Entity("Back_End_Pronia.Models.PlantImage", b =>

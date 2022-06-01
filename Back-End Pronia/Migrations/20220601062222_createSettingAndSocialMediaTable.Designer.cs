@@ -4,14 +4,16 @@ using Back_End_Pronia.DAL;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Back_End_Pronia.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220601062222_createSettingAndSocialMediaTable")]
+    partial class createSettingAndSocialMediaTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -277,32 +279,6 @@ namespace Back_End_Pronia.Migrations
                     b.ToTable("Sliders");
                 });
 
-            modelBuilder.Entity("Back_End_Pronia.Models.SocialMedia", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Icon")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("SettingId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Url")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("SettingId");
-
-                    b.ToTable("SocialMedias");
-                });
-
             modelBuilder.Entity("Back_End_Pronia.Models.Plant", b =>
                 {
                     b.HasOne("Back_End_Pronia.Models.Color", "color")
@@ -341,15 +317,6 @@ namespace Back_End_Pronia.Migrations
                     b.HasOne("Back_End_Pronia.Models.Setting", null)
                         .WithMany("Settings")
                         .HasForeignKey("SettingId");
-                });
-
-            modelBuilder.Entity("Back_End_Pronia.Models.SocialMedia", b =>
-                {
-                    b.HasOne("Back_End_Pronia.Models.Setting", "Setting")
-                        .WithMany()
-                        .HasForeignKey("SettingId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

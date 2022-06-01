@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Back_End_Pronia.Models;
+﻿using Back_End_Pronia.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace Back_End_Pronia.DAL
@@ -22,5 +18,7 @@ namespace Back_End_Pronia.DAL
         public DbSet<Size> Sizes { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<PlantCategory> PlantCategories { get; set; }
+        public DbSet<Setting> Settings { get; set; }
+        public DbSet<SocialMedia> SocialMedias { get; set; }
     }
 }

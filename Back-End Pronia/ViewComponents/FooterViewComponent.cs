@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Back_End_Pronia.DAL;
 using Back_End_Pronia.Models;
+using Back_End_Pronia.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -20,9 +21,11 @@ namespace Back_End_Pronia.ViewComponents
 
         public async Task<IViewComponentResult> InvokeAsync()
         {
-            Setting set = await _context.Settings.FirstOrDefaultAsync();
+            
+            Setting setting = await _context.Settings.FirstOrDefaultAsync();
 
-            return View(set);
+          
+            return View(setting);
         }
     }
 }

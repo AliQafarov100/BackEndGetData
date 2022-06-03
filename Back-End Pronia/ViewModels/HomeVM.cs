@@ -17,5 +17,7 @@ namespace Back_End_Pronia.ViewModels
         public List<Size> Sizes { get; set; }
         public List<Category> Categories { get; set; }
         public List<PlantCategory> PlantCategories { get; set; }
+        public List<Setting> Settings { get; set; }
+        public List<SocialMedia> SocialMedias { get; set; }
     }
 }

@@ -33,6 +33,7 @@ namespace Back_End_Pronia
             {
                 opt.UseSqlServer(_configuration.GetConnectionString("Default"));
             });
+            services.AddHttpContextAccessor();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -55,7 +56,7 @@ namespace Back_End_Pronia
 
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=home}/{action=index}");
+                    pattern: "{controller=home}/{action=index}/{id?}");
             });
         }
     }

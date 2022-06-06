@@ -72,6 +72,30 @@ namespace Back_End_Pronia.Controllers
             return RedirectToAction("Index", "Home");
         }
 
+        public IActionResult RemoveBasket(int id)
+        {
+            string reqStr = HttpContext.Request.Cookies["Basket"];
+            BasketVM basket;
+
+            if (!string.IsNullOrEmpty(reqStr))
+            {
+                basket = JsonConvert.DeserializeObject<BasketVM>(reqStr);
+                BasketItemVM existed = basket.BasketItemVMs.FirstOrDefault(s => s.plant.Id == id);
+                if(existed != null)
+                {
+                    existed.Count--;
+                    if(existed.Count <= 1)
+                    {
+                        basket.BasketItemVMs.Remove(existed);
+                    }
+                }
+                string itemStr  = JsonConvert.SerializeObject(basket);
+            }
+
+            HttpContext.Response.Cookies.Append("Basket",reqStr);
+            return RedirectToAction("Index", "Home");
+        }
+
         public ActionResult ShowBasket()
         {
             return Content(HttpContext.Request.Cookies["Basket"]);

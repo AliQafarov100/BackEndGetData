@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\M S I\\Desktop\\Back-End Pronia\\Back-End Pronia\\Back-End Pronia.csproj": {}
+    "D:\\Code Yeşil\\BackEndGetData\\Back-End Pronia\\Back-End Pronia.csproj": {}
   },
   "projects": {
-    "C:\\Users\\M S I\\Desktop\\Back-End Pronia\\Back-End Pronia\\Back-End Pronia.csproj": {
+    "D:\\Code Yeşil\\BackEndGetData\\Back-End Pronia\\Back-End Pronia.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\M S I\\Desktop\\Back-End Pronia\\Back-End Pronia\\Back-End Pronia.csproj",
+        "projectUniqueName": "D:\\Code Yeşil\\BackEndGetData\\Back-End Pronia\\Back-End Pronia.csproj",
         "projectName": "Back-End Pronia",
-        "projectPath": "C:\\Users\\M S I\\Desktop\\Back-End Pronia\\Back-End Pronia\\Back-End Pronia.csproj",
+        "projectPath": "D:\\Code Yeşil\\BackEndGetData\\Back-End Pronia\\Back-End Pronia.csproj",
         "packagesPath": "C:\\Users\\M S I\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\M S I\\Desktop\\Back-End Pronia\\Back-End Pronia\\obj\\",
+        "outputPath": "D:\\Code Yeşil\\BackEndGetData\\Back-End Pronia\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\M S I\\AppData\\Roaming\\NuGet\\NuGet.Config",

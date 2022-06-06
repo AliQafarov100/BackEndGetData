@@ -813,30 +813,33 @@
                             </a>
                         </div>
                         <ul class="minicart-list">
-                            @foreach (BasketItemVM itemVM in layoutservice.GetBasket()?.BasketItemVMs)
+                            @if (layoutservice.GetBasket()?.BasketItemVMs != null)
                             {
-                                <li class="minicart-product">
-                                    <a class="product-item_remove" href="#">
-                                        <i class="pe-7s-close"
-                                           data-tippy="Remove"
-                                           data-tippy-inertia="true"
-                                           data-tippy-animation="shift-away"
-                                           data-tippy-delay="50"
-                                           data-tippy-arrow="true"
-                                           data-tippy-theme="sharpborder"></i>
-                                    </a>
-                                    <a href="single-product-variable.html"
-                                       class="product-item_img">
-                                        <img class="img-full"
-                                             src="~/assets/images/product/small-size/2-3-70x78.png"
-                                             alt="Product Image" />
-                                    </a>
-                                    <div class="product-item_content">
-                                        <a class="product-item_title"
-                                           href="single-product-variable.html">@itemVM.plant.Name</a>
-                                        <span class="product-item_quantity">@itemVM.Count x $@itemVM.plant.Price</span>
-                                    </div>
-                                </li>
+                                @foreach (BasketItemVM itemVM in layoutservice.GetBasket()?.BasketItemVMs)
+                                {
+                                    <li class="minicart-product">
+                                        <a class="product-item_remove" href="#">
+                                            <i class="pe-7s-close"
+                                               data-tippy="Remove"
+                                               data-tippy-inertia="true"
+                                               data-tippy-animation="shift-away"
+                                               data-tippy-delay="50"
+                                               data-tippy-arrow="true"
+                                               data-tippy-theme="sharpborder"></i>
+                                        </a>
+                                        <a href="single-product-variable.html"
+                                           class="product-item_img">
+                                            <img class="img-full"
+                                                 src="~/assets/images/product/small-size/2-3-70x78.png"
+                                                 alt="Product Image" />
+                                        </a>
+                                        <div class="product-item_content">
+                                            <a class="product-item_title"
+                                               href="single-product-variable.html">@itemVM.plant.Name</a>
+                                            <span class="product-item_quantity">@itemVM.Count x $@itemVM.plant.Price</span>
+                                        </div>
+                                    </li>
+                                }
                             }
 
                         </ul>
